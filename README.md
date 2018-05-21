@@ -13,3 +13,5 @@ Completed
   - Problem 4
   - Problem 5
   - Problem 6
+  - Problem 7
+  - Problem 8
