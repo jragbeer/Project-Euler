@@ -21,3 +21,6 @@ Completed
   - Problem 14
   - Problem 15
   - Problem 16
+  - Problem 20
+  - Problem 21
+  - Problem 22
