@@ -24,3 +24,5 @@ Completed
   - Problem 20
   - Problem 21
   - Problem 22
+  - Problem 29
+  - Problem 30
