@@ -28,3 +28,5 @@ Completed
   - Problem 29
   - Problem 30
   - Problem 32
+  - Problem 34
+  - Problem 36
