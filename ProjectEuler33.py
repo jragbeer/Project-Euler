@@ -44,13 +44,6 @@ r = 1.0
 for x in d:
     if x[1] < 1.0:
         r = r*x[1]
-        print(x[1])
+print(1/r)
 
-print(r)
-#1/4
-#1/5
-#2/5
-#1/2
-
-#1/40 * 2/5 = 2 / 200 = 1 / 100
 print(datetime.datetime.now()-timee)
