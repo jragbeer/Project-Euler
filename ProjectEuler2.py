@@ -8,11 +8,8 @@ import pandas as pd
 # 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
-
 arr = [1,2]
 while arr[-1] < 4000000:
     arr.append(arr[-1]+arr[-2])
-new = [x for x in arr if x%2 == 0]
+new = (x for x in arr if x%2 == 0)
 print(sum(new))
-
-
