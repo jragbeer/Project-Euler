@@ -30,7 +30,6 @@ pp = """73167176531330624919225119674426574742355349194934\
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450"""
 prods = []
-
 for x in range(len(pp)):
     try:
         #prods.append(int(pp[x]) * int(pp[x + 1]) * int(pp[x + 2]) * int(pp[x + 3]))
@@ -38,7 +37,5 @@ for x in range(len(pp)):
             pp[x + 6]) * int(pp[x + 7]) * int(pp[x + 8]) * int(pp[x + 9]) * int(pp[x + 10]) * int(pp[x + 11]) * int(pp[x + 12]))
     except:
         pass
-
-
 print(max(prods))
 
