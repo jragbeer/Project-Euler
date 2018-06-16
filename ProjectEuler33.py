@@ -9,11 +9,9 @@ import datetime
 # There are exactly four non-trivial examples of this type of fraction, less than one in value, and containing two digits in the numerator and denominator.
 #
 # If the product of these four fractions is given in its lowest common terms, find the value of the denominator.
-
 timee = datetime.datetime.now()
 print(timee)
 d = []
-
 for x in range(10, 100):
     for y in range(10, 100):
         if str(x)[0] == str(y)[0]:
@@ -45,5 +43,4 @@ for x in d:
     if x[1] < 1.0:
         r = r*x[1]
 print(1/r)
-
 print(datetime.datetime.now()-timee)
