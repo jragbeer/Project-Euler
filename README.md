@@ -33,3 +33,7 @@ Completed
   - Problem 36
   - Problem 39
   - Problem 40
+  - Problem 42
+  - Problem 44
+  - Problem 45
+  - Problem 48
