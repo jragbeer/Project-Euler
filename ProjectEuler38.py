@@ -13,21 +13,21 @@ import itertools
 #
 # What is the largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product of an integer with (1,2, ... , n) where n > 1?
 timee = datetime.datetime.now()
-print(timee)
-
+def func(x, y):
+    d = [str(x*a) for a in y]
+    return ''.join(d)
+def zeros(x):
+    x = str(x)
+    for y in x:
+        if y == '0':
+            return False
+    return True
 aa = range(1,10)
 b = list(itertools.permutations(aa))
 b = [list(x) for x in b]
 r = [[str(x) for x in b[t]] for t in range(len(b))]
 r = [int(''.join(x)) for x in r]
-print(r)
-z = []
-for x in range(2,10):
-    z.append([i for i in range(1,x)])
-
-for x in range(1,np.round(int(987654321/2))):
-    for y in z:
-        print(x,y)
-
-
+z = [[i for i in range(1,x)] for x in range(2,9)]
+q = [int(func(x,y)) for x in range(1,9999) for y in z[1:]]
+print(sorted([d for d in q if len(str(d))==9 if len(set(str(d))) == len(str(d)) if zeros(d)])[-1])
 print(datetime.datetime.now()-timee)
