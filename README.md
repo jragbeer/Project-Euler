@@ -38,3 +38,7 @@ Completed
   - Problem 44
   - Problem 45
   - Problem 48
+  - Problem 49
+  - Problem 50
+  - Problem 56
+  
