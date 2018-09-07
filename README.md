@@ -42,4 +42,6 @@ Completed
   - Problem 50
   - Problem 56
   - Problem 61
+  - Problem 80
+  - Problem 92
   
