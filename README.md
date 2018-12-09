@@ -6,43 +6,4 @@ Solving Project Euler Problems in Python
 
 Solving math problems using programming!
 
-Completed
-  - Problem 1 
-  - Problem 2
-  - Problem 3
-  - Problem 4
-  - Problem 5
-  - Problem 6
-  - Problem 7
-  - Problem 8
-  - Problem 9
-  - Problem 11
-  - Problem 13
-  - Problem 14
-  - Problem 15
-  - Problem 16
-  - Problem 17
-  - Problem 20
-  - Problem 21
-  - Problem 22
-  - Problem 25
-  - Problem 29
-  - Problem 30
-  - Problem 32
-  - Problem 34
-  - Problem 36
-  - Problem 39
-  - Problem 40
-  - Problem 41
-  - Problem 42
-  - Problem 44
-  - Problem 45
-  - Problem 48
-  - Problem 49
-  - Problem 50
-  - Problem 56
-  - Problem 61
-  - Problem 80
-  - Problem 92
-  - Problem 97
-  
+So far - 53 / first 100 completed
