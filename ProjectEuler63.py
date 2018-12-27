@@ -1,6 +1,3 @@
-import numpy as np
-import pandas as pd
-import datetime
 import cProfile
 import io
 import pstats
@@ -28,18 +25,13 @@ def profile(fnc):
         return retval
 
     return inner
-
-
 @profile
 def main():
-
-    for x in range(1,200000001):
-        p = len(str(x))
-        z = np.round(x**(1/p))
-        if int(x) == int(z**p):
-            print('this:', x)
-            pass
-
-
-
+    c= 0
+    for x in range(1,10001):
+        for y in range(1,10):
+            a = str(y**x)
+            if len(a) == x:
+                c+=1
+    print(c, 'integers are nth-powers')
 main()
