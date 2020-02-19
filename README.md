@@ -6,6 +6,6 @@ Solving Project Euler Problems in Python
 
 Solving math problems using programming!
 
-So far - 56 / first 100 completed
+So far - 62 / first 100 completed
 
-Solutions solved with Numpy will be stated
+Solutions solved with Numpy will be stated. Some problems use the standard library (itertools, functools, etc.)
