@@ -1,8 +1,14 @@
 import numpy as np
-import pandas as pd
+import cProfile
+import io
 import datetime
+import itertools
+import pstats
+from tqdm import tqdm
+from pprint import pprint
 import math
-# Project Euler Problem 8
+
+# Project Euler Problem 71
 # Consider the fraction, n/d, where n and d are positive integers. If n<d and HCF(n,d)=1, it is called a reduced proper fraction.
 #
 # If we list the set of reduced proper fractions for d ≤ 8 in ascending order of size, we get:
@@ -13,23 +19,39 @@ import math
 #
 # By listing the set of reduced proper fractions for d ≤ 1,000,000 in ascending order of size, find the numerator of the fraction immediately to the left of 3/7.
 
-timee = datetime.datetime.now()
-def hcf(p,u):
-    ppp = math.ceil(p/2)+1
-    uuu = math.ceil(u / 2) + 1
-    z = [i for i in range(1,ppp) if p/i == int(p/i)]
-    o = [i for i in range(1,uuu) if u/i == int(u/i)]
-    qqq = [zz for zz in z if zz in o]
-    if len(qqq) > 1:
-        return False
-    else:
-        return True
-def run():
-    nn = 3/7
-    ww = 1000001
-    qq = {y/x:f"{y}/{x}" for x in range(1,ww) for y in range(1,x) if y/x <= nn if hcf(x,y)}
-    a = (sorted(list(qq.keys())))
-    print(qq[a[-2]])
+def profile(fnc):
+    """A decorator that uses cProfile to profile a function"""
 
+    def inner(*args, **kwargs):
+        pr = cProfile.Profile()
+        pr.enable()
+        retval = fnc(*args, **kwargs)
+        pr.disable()
+        s = io.StringIO()
+        sortby = 'cumulative'
+        ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+        ps.print_stats()
+        print(s.getvalue())
+        return retval
+
+    return inner
+
+@profile
+def run():
+    max_fraction = 3/7
+    min_fraction = float(np.around(3/7, 5))
+    d = 1000000
+    output = {}
+    for x in tqdm(range(1, d+1)):
+        for y in range(int(min_fraction*x), int(3*x/7)+1):
+            if x%2 == 0:
+                if y%2 == 0:
+                    continue
+            if math.gcd(x, y) == 1:
+                c = y/x
+                e = f"{y}/{x}"
+                if min_fraction < c < max_fraction:
+                    output[c] = e
+    p = max([x for x in output.keys()])
+    print(p, output[p])
 run()
-print(datetime.datetime.now()-timee)
