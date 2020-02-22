@@ -5,6 +5,8 @@ import io
 import pstats
 import gc
 import itertools
+import sys
+import time
 def profile(fnc):
     """A decorator that uses cProfile to profile a function"""
 
@@ -36,41 +38,32 @@ def run():
                 sieve[(k * k + 4 * k - 2 * k * (i & 1)) // 3::2 * k] = [False] * (
                         (n // 6 - (k * k + 4 * k - 2 * k * (i & 1)) // 6 - 1) // k + 1)
         return [2, 3] + [3 * i + 1 | 1 for i in range(1, n // 3 - correction) if sieve[i]]
-    def find_possible_combos(b):
-        c = range(len(b))
+    def find_possible_combos(array):
+        c = range(len(array))
         all_combos = []
         for i in c[1:]:
             all_combos.append(list(itertools.combinations(c, i)))
-        flat_list = [item for sublist in all_combos for item in sublist if len(item) < len(b)]
+        flat_list = [item for sublist in all_combos for item in sublist if len(item) < len(array)]
         return flat_list
 
-
     num = 1_000_000
-    a = primes2(num)
-    for each in a[5:]:
+    primes = primes2(num)
+    primes_set = set(primes)
+    for each in primes[5:]:
         q = str(each)
-        cool = find_possible_combos(q)
-        total = []
-        for r in range(10):
+        combos = find_possible_combos(q)
+        for k in combos:
             each_num = []
-            for k in cool:
-                other = []
-                for i in range(len(q)):
-                    # print(k, i)
-                    if i in k:
-                        other.append(f"{r}")
-                    else:
-                        other.append(q[i])
-                other = ''.join(other)
-                each_num.append(int(other))
-
-            for k in each_num:
-                if k in a:
-                    total.append(k)
-        print()
-
-    # if len(each_num) > 5:
-    #     print(each_num)
-
+            for digit in range(10):
+                each_num.append(int(''.join([f"{digit}" if i in k else q[i] for i in range(len(q))])))
+            total = [p for p in each_num if p in primes_set]
+            if len(total) == 8:
+                ting = [len(str(que)) for que in total]
+                if np.mean(ting) == ting[0]:
+                    print(total[0])
+                    break
+        else:
+            continue
+        break
 
 run()
