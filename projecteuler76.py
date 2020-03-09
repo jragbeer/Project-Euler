@@ -4,6 +4,7 @@ import io
 import itertools
 import pstats
 import time
+
 def profile(fnc):
     """A decorator that uses cProfile to profile a function"""
 
@@ -21,7 +22,6 @@ def profile(fnc):
 
     return inner
 
-
 def add_first_two_numbers(b):
     return [b[0] + b[1]] + b[2:]
 def all_pairs(a):
@@ -30,9 +30,7 @@ def all_pairs(a):
 
 def final(input_list):
     for each in input_list:
-        # if each in other_list:
-        #     continue
-        # print(each)
+        print(1, each)
         try:
             input_list.append(add_first_two_numbers(each))
         except IndexError:
@@ -46,14 +44,13 @@ def final(input_list):
 @profile
 def start():
     ti = time.time()
-    num = 5
+    num = 10
     stuff = [x for x in all_pairs(num)] + [[1 for x in range(num)]]
     stuff = final(stuff,)
     print(time.time()-ti)
     interesting = [len(stuff)+1, len(stuff)]
     print(len(stuff))
     r = 0
-    # for x in range(5):
     while interesting[-2] != interesting[-1]:
         r+=1
         print(r)
@@ -61,11 +58,8 @@ def start():
         print(len(stuff))
         interesting.append(len(stuff))
         gc.collect()
-    # for x in stuff:
-    #     print(x)
     print()
     print(len(list(stuff)))
-
     print(time.time()-ti)
 
 start()
